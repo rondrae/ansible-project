@@ -1,0 +1,17 @@
+[tooling]
+192.168.74.162 ansible_user=rondrae
+
+
+# [todo]
+# 192.168.74.159 ansible_user=rondrae
+
+# [nginx]
+# 192.168.74.164 ansible_user=rondrae
+
+# [db:vars]
+# ansible_user=rondrae
+# ansible_python_interpreter=/usr/bin/python3
+
+# [db]
+# 192.168.74.  
+
