@@ -5,7 +5,7 @@ pipeline {
     stage('SCM Checkout') {
       steps {
         script {
-          git 'https://github.com/rondrae/ansible-project.git'
+          git branch: 'main', credentialsId: 'jenk', url: 'https://github.com/rondrae/ansible-project.git'
         }
       }
     }
