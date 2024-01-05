@@ -2,45 +2,45 @@ pipeline {
     agent any
 
   stages {
-    stage('Build') {
+    stage('SCM Checkout') {
       steps {
         script {
-          sh 'echo "Building Stage"'
+          git 'https://github.com/rondrae/ansible-project.git'
         }
       }
     }
 
-    stage('Test') {
+    stage('Execute Ansible') {
       steps {
         script {
-          sh 'echo "Testing Stage"'
+          ansiblePlaybook credentialsId: 'rondrae-jenkins-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbook/playbook.yml', vaultTmpPath: ''
         }
       }
     }
 
-    stage('Package') {
-      steps {
-        script {
-          sh 'echo "Package Stage"'
-        }
-      }
-    }
+    // stage('Package') {
+    //   steps {
+    //     script {
+    //       sh 'echo "Package Stage"'
+    //     }
+    //   }
+    // }
 
-    stage('Deploy') {
-      steps {
-        script {
-          sh 'echo "Deploy Stage"'
-        }
-      }
-    } 
+    // stage('Deploy') {
+    //   steps {
+    //     script {
+    //       sh 'echo "Deploy Stage"'
+    //     }
+    //   }
+    // } 
 
-    stage('Clean up') {
-      steps {
-        script {
-          sh 'echo "Clean up Stage"'
-        }
-      }
-    }       
+    // stage('Clean up') {
+    //   steps {
+    //     script {
+    //       sh 'echo "Clean up Stage"'
+    //     }
+    //   }
+    // }       
 
     }
     
