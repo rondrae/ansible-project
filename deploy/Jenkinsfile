@@ -4,6 +4,9 @@ pipeline {
     parameters {
       string(name: 'inventory', defaultValue: 'dev',  description: 'This is the inventory file for the environment to deploy configuration')
     }
+    parameters {
+      string(name: 'tag', defaultValue: 'tooling',  description: 'This is for roles, e.g. webservers')
+    }    
 
   stages {
     stage('SCM Checkout') {
